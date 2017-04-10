@@ -17,9 +17,9 @@ install:
     - sleep 10
     - docker exec -it qgis-testing-environment sh -c "qgis_setup.sh ${SCRIPT_DIR}"
     - docker exec -it qgis-testing-environment sh -c "cd tests_directory/${SCRIPT_DIR}"
-    - docker-compose exec qgis-testing-environment sh -c "ls tests_directory/${SCRIPT_DIR}"
+    - docker exec -it qgis-testing-environment sh -c "ls tests_directory/${SCRIPT_DIR}"
     
 script:
-    - echo %PWD !!!!!!!!!!!
+    - docker exec -it qgis-testing-environment sh -c "ls echo %PWD !!!!!!!!!!!"
     - docker exec -it qgis-testing-environment sh -c "qgis_testrunner.sh $tests.foo.run_tests;"
 
