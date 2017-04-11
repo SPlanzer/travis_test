@@ -22,5 +22,5 @@ def suite():
     return suite
 
 def run_tests():
-    unittest.TextTestRunner(verbosity=3, stream=sys.stdout).run(suite())
+    unittest.TextTestRunner(verbosity=3).run(suite())
 
