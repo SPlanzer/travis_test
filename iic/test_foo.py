@@ -1,14 +1,5 @@
 import sys
-import os
 import unittest
-
-from qgis.utils import plugins
-from qgis.utils import QGis
-from qgis.core import QgsVectorLayer, QgsFeatureRequest
-from PyQt4.QtCore import QSettings, QFileInfo
-
-
-
 
 class TestFoo(unittest.TestCase):
     
