@@ -2,7 +2,7 @@
 
 import unittest   
 
-class test_tests(unittest.TestCase):
+class foo(unittest.TestCase):
     
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
@@ -10,8 +10,7 @@ class test_tests(unittest.TestCase):
 
 def suite():
     suite = unittest.TestSuite()
-    suite.addTests(unittest.makeSuite(test_tests, 'test'))
+    suite.addTests(unittest.makeSuite(foo, 'test'))
     return suite
-
 def run_tests():
     unittest.TextTestRunner(verbosity=3, stream=sys.stdout).run(suite())
