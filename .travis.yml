@@ -18,4 +18,4 @@ install:
     - docker exec -it qgis-testing-environment sh -c "cd tests_directory/${PLUGIN_DIR}; ls tests"
 
 script:
-    - docker exec -it qgis-testing-environment sh -c "qgis_testrunner.sh tests_directory/${PLUGIN_DIR}.tests.test_foo.run_tests;"
+    - docker exec -it qgis-testing-environment sh -c "qgis_testrunner.sh test_foo.run_tests;"
