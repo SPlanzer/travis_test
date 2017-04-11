@@ -1,11 +1,17 @@
+sudo: required
+language: generic
+
 services:
     - docker
 
+
 env:
   global:
-      - PLUGIN_DIR=iic
+  - PLUGIN_NAME=LDS_Plugin
+
+  matrix:
       - QGIS_VERSION_TAG=release PYTHON_EXECUTABLE=python PIP_EXECUTABLE=pip
-      #- QGIS_VERSION_TAG=master_2 PYTHON_EXECUTABLE=python PIP_EXECUTABLE=pip
+      - QGIS_VERSION_TAG=master_2 PYTHON_EXECUTABLE=python PIP_EXECUTABLE=pip
 
 before_install:
     - docker pull boundlessgeo/qgis-testing-environment:${QGIS_VERSION_TAG}
@@ -14,8 +20,9 @@ before_install:
 install:
     - docker run -d --name qgis-testing-environment -v ${TRAVIS_BUILD_DIR}:/tests_directory -e DISPLAY=:99 qgis-testing-environment
     - sleep 10
-    - docker exec -it qgis-testing-environment sh -c "qgis_setup.sh ${PLUGIN_DIR}"
-    - docker exec -it qgis-testing-environment sh -c "cd tests_directory/${PLUGIN_DIR}; ls tests"
+    - docker exec -it qgis-testing-environment sh -c "qgis_setup.sh ${PLUGIN_NAME}"
 
 script:
-    - docker exec -it qgis-testing-environment sh -c "qgis_testrunner.sh test_foo.run_tests;"
+    - docker exec -it qgis-testing-environment sh -c "qgis_testrunner.sh ${PLUGIN_NAME}.tests.layerstest.run_tests"
+
+
