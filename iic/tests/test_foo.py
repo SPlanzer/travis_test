@@ -1,8 +1,9 @@
 # Dummy test
 
 import unittest   
+import sys
 
-class test_tests(unittest.TestCase):
+class TestFoo(unittest.TestCase):
     
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
@@ -10,7 +11,7 @@ class test_tests(unittest.TestCase):
 
 def suite():
     suite = unittest.TestSuite()
-    suite.addTests(unittest.makeSuite(test_tests, 'test'))
+    suite.addTests(unittest.makeSuite(TestFoo, 'test'))
     return suite
 
 def run_tests():
