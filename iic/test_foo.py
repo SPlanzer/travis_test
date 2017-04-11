@@ -1,4 +1,3 @@
-import sys
 import unittest
 
 class TestFoo(unittest.TestCase):
