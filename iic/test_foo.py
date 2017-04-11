@@ -1,5 +1,3 @@
-import sys
-import os
 import unittest
 
 from qgis.utils import plugins
@@ -10,7 +8,7 @@ from PyQt4.QtCore import QSettings, QFileInfo
 
 
 
-class test_foo(unittest.TestCase):
+class TestFoo(unittest.TestCase):
     
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
@@ -18,7 +16,7 @@ class test_foo(unittest.TestCase):
 
 def suite():
     suite = unittest.TestSuite()
-    suite.addTests(unittest.makeSuite(test_foo, 'test'))
+    suite.addTests(unittest.makeSuite(TestFoo, 'test'))
     return suite
 
 def run_tests():
