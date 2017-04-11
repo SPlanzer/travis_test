@@ -1,3 +1,5 @@
+import sys
+import os
 import unittest
 
 from qgis.utils import plugins
