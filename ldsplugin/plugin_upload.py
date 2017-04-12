@@ -16,7 +16,7 @@ SERVER = 'plugins.qgis.org'
 PORT = '80'
 ENDPOINT = '/plugins/RPC2/'
 VERBOSE = False
-
+ 
 
 def main(parameters, arguments):
     """Main entry point.
